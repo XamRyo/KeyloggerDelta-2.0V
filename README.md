@@ -62,3 +62,9 @@ pyinstaller --clean --onefile --windowed .\KeyloggerDelta-2.0V.py
       with open(f"{random_dir}log.txt", 'w') as logfile:
       ```
       This is NOT NECESSARY...
+
+## DISCLAIMER AND LICENCE
+This project is for ethical use only. The Dev-XamRyo are not responsible for any misuse. Ensure you have explicit permission to log keystrokes on any system where this tool is used ^-^
+
+## Licence
+This project is licensed under the MIT License. Ask and support repository :)
