@@ -1,0 +1,6 @@
+**`.gitignore`**:
+*.pyc pycache/ dist/ build/ *.spec log.txt
+
+---
+
+Would you like help uploading or help my repository? :) 
