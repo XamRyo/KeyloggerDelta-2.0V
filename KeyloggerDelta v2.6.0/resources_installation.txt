@@ -1,0 +1,13 @@
+pip install pywin32
+
+pip install pyinstaller
+
+pip install pyhook  
+
+pip install logging  
+
+pip install sys  
+
+pip install time  
+
+pip install pynput 
