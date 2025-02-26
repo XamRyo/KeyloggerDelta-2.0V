@@ -9,19 +9,31 @@ This is KeyloggerDelta-2.0V. By Python Code with proper comments and an ethical 
 This repository contains a simple keylogger implemented in Python for **educational purposes** only. It is intended to demonstrate how keylogging works and should be used responsibly. Unauthorized use of this software may violate privacy laws and is strictly prohibited.
 
 ## Features
-- Captures and logs keypresses.
-- Saves keystrokes to a `log.txt` file.
-- Stops logging when the `ESC` key is pressed.
-- By default, `log.txt` is stored in the same directory where the script is executed. 
-- Optionally, the file can be saved to a specific directory or a random location (requires modification).
+- Captures and logs keypresses with Keyboard Event Handling:
+  - The OnKeyboardEvent function handles keyboard events, logs the key presses to the specified file, and       prints additional information such as the window name and window handle..
+- Destination Folder Definition
+  - The code defines a destination folder where the keylogger data will be stored. This is specified by the     destination_folder variable.
+- Timeout Mechanism.
+  - The code sets a wait time in seconds (seconds_wait) before sending the email. It calculates the timeout     based on the current time and the wait time.
+  - The TimeOut function checks if the timeout has been reached.
+- Email Notification:
+  - The SendEmail function reads the captured keylogger data from the specified file, formats it, and sends     it via email...
+  - The createEmail function creates and sends an email using the SMTP protocol. 
+- Hook Manager Setup:
+  - The code sets up a hook manager to capture keyboard events using pyHook.
+- Main Loop:
+  - The main loop continuously checks for the timeout and sends an email if the timeout has been reached.       It also processes any waiting messages.
 
 ## Requirements
-- Python 3.13.1 or any V2>
+- Python 3.13.1 or any V.py>
 - Libraries:
-  - [pynput](https://pypi.org/project/pynput/): For capturing keyboard input.
-  - [pyinstaller](https://pypi.org/project/pyinstaller/): For converting Python scripts into standalone executables.
-  - [time](https://docs.python.org/es/3.10/library/time.html): For the timelapse of the keys and his features
-  - [logging](https://docs.python.org/es/3.9/library/logging.html): It is used to manage log files efficiently.
+  - [pyHook](https://sourceforge.net/projects/pyhook/files/pyhook/1.5.1/)
+  - [auto-py-to-exe](https://pypi.org/project/auto-py-to-exe/) [GitHub](https://github.com/brentvollebregt/auto-py-to-exe?tab=readme-ov-file)
+  - [pywin32](https://pypi.org/project/pywin32/)
+  - [pynput](https://pypi.org/project/pynput/)
+  - [pyinstaller](https://pypi.org/project/pyinstaller/)
+  - [time](https://docs.python.org/es/3.10/library/time.html)
+  - [logging](https://docs.python.org/es/3.9/library/logging.html)
 
 ## Installation
 1. Clone this repository:
@@ -29,13 +41,19 @@ This repository contains a simple keylogger implemented in Python for **educatio
     git clone XamRyo/KeyloggerDelta-2.0V
     cd KeyloggerDelta-2.0V
     ```
+<p align="center">
+<img src="https://i.ibb.co/vvxmqHV5/Py-Code-snippet.png" alt="Py-Code-snippet" border="0">
+</p>
 
 2. Install the required Python packages:
     ```bash
     python -m pip install –upgrade pip.
+    pip install pyHook
+    pip install auto-py-to-exe 
+    pip install pywin32
     pip install pynput
-    pip install pyinstaller
-    pip install time (general library) (optional)
+    pip install pyinstaller (optional)
+    pip install time (general library)
     pip install logging
     ```
 
@@ -45,30 +63,14 @@ This repository contains a simple keylogger implemented in Python for **educatio
     ```
 
 ## Create Executable
-Convert the script into an executable file:
+#Convert the script into an executable file:
 ```bash
 pyinstaller --clean --onefile --windowed .\KeyloggerDelta-2.0V.py
 ```
-
-## Output Details (NOT OBLIGATORY):
-- The script creates a file named `log.txt`, which stores all the captured keystrokes.
-- **Default Location**: The `log.txt` file will be created in the same directory as the script or executable or idk your PC XD.
-- **Custom/Random Location**: You can modify the script to save the `log.txt` file to a specific directory or generate a random location:
-    - **Specific Directory**:
-      Replace the `log.txt` path in the script with the desired directory, e.g.:
-      ```python
-      with open('C:/logs/log.txt', 'w') as logfile:
-      ```
-    - **Random Directory**:
-      Use Python's `os` and `random` libraries to dynamically create a random directory. Example:
-      ```python
-      import os
-      import random
-      random_dir = f"C:/temp/logs-{random.randint(1000, 9999)}/"
-      os.makedirs(random_dir, exist_ok=True)
-      with open(f"{random_dir}log.txt", 'w') as logfile:
-      ```
-      This is NOT NECESSARY...
+#With auto-py-to-exe:
+```bash
+python -m auto_py_to_exe
+```
 
 ## DISCLAIMER AND LICENCE
 This project is for ethical use only. The Dev-XamRyo are not responsible for any misuse. Ensure you have explicit permission to log keystrokes on any system where this tool is used ^-^
