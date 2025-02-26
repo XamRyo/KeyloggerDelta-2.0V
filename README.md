@@ -3,7 +3,7 @@
 </p>
 
 # **KeyloggerDelta v2.0** - **An Open-Source Keylogger**
-A simple yet powerful Python-based keylogger with an ethical focus. Open Source - MIT License. Contributions and suggestions are always welcome! 😊 / ❤️ - **XamRyo**
+A simple yet powerful Python-based keylogger with an ethical focus. Open Source - MIT License. Contributions and suggestions are always welcome! - **XamRyo**
 
 ---
 
